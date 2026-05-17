@@ -1,0 +1,146 @@
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+
+# =========================
+# IDEs / Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Pytest
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Alembic
+alembic/versions/*.pyc
+
+
+# =========================
+# Node / Frontend
+# =========================
+node_modules/
+dist/
+build/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Vite
+vite.svg
+
+# Next.js
+.next/
+out/
+
+# React Native
+.expo/
+
+
+# =========================
+# Docker
+# =========================
+*.tar
+
+# Docker override files
+docker-compose.override.yml
+
+
+# =========================
+# PostgreSQL
+# =========================
+postgres_data/
+*.sql
+
+
+# =========================
+# OpenShift / Kubernetes
+# =========================
+*.kubeconfig
+.kube/
+.openshift/
+
+# Helm
+charts/*.tgz
+
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+
+# =========================
+# Terraform (future)
+# =========================
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+
+# =========================
+# Mac/Linux temp files
+# =========================
+*.tmp
+*.temp
+
+
+# =========================
+# Misc
+# =========================
+coverage/
+.cache/
