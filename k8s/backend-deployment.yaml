@@ -27,7 +27,7 @@ spec:
 
           env:
             - name: DATABASE_URL
-              value: postgresql://postgres:postgres@taskflow-db:5432/taskflow
+              value: postgresql://taskflowuser:postgres@taskflow-db:5432/taskflow
 
             - name: SECRET_KEY
               value: supersecretkey

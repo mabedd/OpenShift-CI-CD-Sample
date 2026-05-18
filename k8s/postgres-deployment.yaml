@@ -18,19 +18,19 @@ spec:
 
     spec:
       containers:
-        - name: postgres
+        - name: postgresql
 
-          image: postgres:16
+          image: image-registry.openshift-image-registry.svc:5000/openshift/postgresql:13-el9
 
           ports:
             - containerPort: 5432
 
           env:
-            - name: POSTGRES_USER
+            - name: POSTGRESQL_USER
+              value: taskflowuser
+
+            - name: POSTGRESQL_PASSWORD
               value: postgres
 
-            - name: POSTGRES_PASSWORD
-              value: postgres
-
-            - name: POSTGRES_DB
+            - name: POSTGRESQL_DATABASE
               value: taskflow
