@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: taskflow-db
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: taskflow-db
+
+  template:
+    metadata:
+      labels:
+        app: taskflow-db
+
+    spec:
+      containers:
+        - name: postgres
+
+          image: postgres:16
+
+          ports:
+            - containerPort: 5432
+
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+
+            - name: POSTGRES_PASSWORD
+              value: postgres
+
+            - name: POSTGRES_DB
+              value: taskflow

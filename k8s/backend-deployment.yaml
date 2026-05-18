@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: taskflow-backend
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: taskflow-backend
+
+  template:
+    metadata:
+      labels:
+        app: taskflow-backend
+
+    spec:
+      containers:
+        - name: backend
+
+          image: ghcr.io/mabedd/tasflow-backend:latest
+
+          ports:
+            - containerPort: 8000
+
+          env:
+            - name: DATABASE_URL
+              value: postgresql://postgres:postgres@taskflow-db:5432/taskflow
+
+            - name: SECRET_KEY
+              value: supersecretkey
+
+            - name: ALGORITHM
+              value: HS256
+
+            - name: ACCESS_TOKEN_EXPIRE_MINUTES
+              value: "60"

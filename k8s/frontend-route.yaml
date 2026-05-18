@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+
+metadata:
+  name: taskflow-frontend
+
+spec:
+  to:
+    kind: Service
+    name: taskflow-frontend
+
+  port:
+    targetPort: 8080
