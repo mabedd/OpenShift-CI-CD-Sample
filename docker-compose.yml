@@ -1,0 +1,58 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+
+    container_name: taskflow-frontend
+
+    ports:
+      - "5173:80"
+
+    depends_on:
+      - backend
+
+    restart: always
+
+  backend:
+    build:
+      context: ./backend
+
+    container_name: taskflow-backend
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/taskflow
+      SECRET_KEY: supersecretkey
+      ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 60
+      CORS_ORIGINS: http://localhost:5173
+
+    depends_on:
+      - db
+
+    restart: always
+
+  db:
+    image: postgres:16
+
+    container_name: taskflow-db
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: taskflow
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    restart: always
+
+volumes:
+  postgres_data:
